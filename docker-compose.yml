@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  setup:
+    build: .
+    secrets:
+      - elk-elastic-password
+    environment:
+      - ELASTIC_PASSWORD={{DOCKER-SECRET:elk-elastic-password}}
+
+secrets:
+  elk-elastic-password:
+    file: ./elk-elastic-password.txt
